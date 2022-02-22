@@ -500,6 +500,54 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void openTachi(String query) {
+      ComponentName cn = new ComponentName("eu.kanade.tachiyomi", "eu.kanade.tachiyomi.ui.main.DeepLinkActivity");
+
+      Intent sendIntent = new Intent("eu.kanade.tachiyomi.SEARCH")
+          .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).setType("text/plain");
+        sendIntent.putExtra("query", query);
+        sendIntent.putExtra("filter", "eu.kanade.tachiyomi.extension.all.nhentai");
+
+    //   if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+    //       this.reactContext.startActivity(sendIntent);
+    //   }
+        sendIntent.setComponent(cn);
+        this.reactContext.startActivity(sendIntent);
+    }
+    
+    @ReactMethod
+    public void openTachiHentai(String query) {
+      ComponentName cn = new ComponentName("eu.kanade.tachiyomi", "eu.kanade.tachiyomi.ui.main.DeepLinkActivity");
+
+      Intent sendIntent = new Intent("eu.kanade.tachiyomi.SEARCH")
+          .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).setType("text/plain");
+        sendIntent.putExtra("query", query);
+
+
+    //   if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+    //       this.reactContext.startActivity(sendIntent);
+    //   }
+        sendIntent.setComponent(cn);
+        this.reactContext.startActivity(sendIntent);
+    }
+
+    @ReactMethod
+    public void openPixiv(String query) {
+      ComponentName cn = new ComponentName("jp.pxv.android", "jp.pxv.android.activity.IntentFilterActivity");
+
+      Intent sendIntent = new Intent("eu.kanade.tachiyomi.SEARCH")
+          .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).setType("text/plain");
+        sendIntent.putExtra("query", query);
+
+
+    //   if (sendIntent.resolveActivity(this.reactContext.getPackageManager()) != null) {
+    //       this.reactContext.startActivity(sendIntent);
+    //   }
+        sendIntent.setComponent(cn);
+        this.reactContext.startActivity(sendIntent);
+    }
+
+    @ReactMethod
     public void openChooserWithOptions(ReadableMap options, String title) {
 
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -729,7 +777,7 @@ public class RNSendIntentModule extends ReactContextBaseJavaModule {
             intent.setDataAndType(Uri.fromFile(fileUrl), options.getString("type"));
         }
 
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Activity currentActivity = getCurrentActivity();
         if (currentActivity != null) {
             currentActivity.startActivity(Intent.createChooser(intent, title));

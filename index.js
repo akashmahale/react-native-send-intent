@@ -59,6 +59,15 @@ var SendIntentAndroid = {
     openCamera() {
         RNSendIntentAndroid.openCamera();
     },
+    openTachi(query) {
+        RNSendIntentAndroid.openTachi(query);
+    },
+    openTachiHentai(query) {
+        RNSendIntentAndroid.openTachiHentai(query);
+    },
+    openPixiv(query) {
+        RNSendIntentAndroid.openPixiv(query);
+    },
     openMapsWithRoute(query, mode) {
         RNSendIntentAndroid.openMapsWithRoute(query, mode);
     },

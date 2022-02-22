@@ -56,6 +56,9 @@ declare namespace SendIntentAndroid {
   const openChooserWithMultipleOptions: (options: ChooserOptions[], title: string) => void
   const openMaps: (query: string) => void
   const openCamera: () => void
+  const openTachi: (query: string) => void
+  const openTachiHentai: (query: string) => void
+  const openPixiv: (query: string) => void
   const openMapsWithRoute: (query: string, mode: string)=> void
   const shareTextToLine: (options: TextToLineOptions)=> void
   const shareImageToInstagram: (mimeType: string, mediaPath: string) => void
@@ -72,7 +75,6 @@ declare namespace SendIntentAndroid {
   const openAllEmailApp: () => void
   const requestIgnoreBatteryOptimizations: () => Promise<boolean>
   const showIgnoreBatteryOptimizationsSettings: () => void
-  const openAppWithUri: (intentUri: string, extras?: { [index: string]: string }) => Promise<boolean>
   const TEXT_PLAIN: unique symbol
   const TEXT_HTML: unique symbol
 }
